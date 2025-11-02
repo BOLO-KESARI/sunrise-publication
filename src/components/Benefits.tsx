@@ -4,7 +4,7 @@ const Benefits = () => {
   const stats = [
     {
       icon: Award,
-      number: "258+",
+      number: "260+",
       label: "Trusted Colleges",
       description: "Across Maharashtra",
     },
@@ -40,29 +40,6 @@ const Benefits = () => {
   return (
     <section id="benefits" className="py-20 bg-gradient-to-br from-primary/5 to-accent/5">
       <div className="container mx-auto px-4">
-        {/* Stats Section */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
-          {stats.map((stat, index) => {
-            const Icon = stat.icon;
-            return (
-              <div
-                key={index}
-                className="bg-card p-6 rounded-2xl shadow-soft text-center hover:shadow-medium transition-all duration-300 animate-fade-in"
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-br from-primary to-accent mb-4">
-                  <Icon className="h-6 w-6 text-primary-foreground" />
-                </div>
-                <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent mb-2">
-                  {stat.number}
-                </div>
-                <div className="font-semibold text-card-foreground mb-1">{stat.label}</div>
-                <div className="text-sm text-muted-foreground">{stat.description}</div>
-              </div>
-            );
-          })}
-        </div>
-
         {/* Why Choose Us */}
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12 animate-fade-in">
@@ -90,6 +67,35 @@ const Benefits = () => {
               </div>
             ))}
           </div>
+        </div>
+
+        {/* Stats Section */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mt-16">
+          {stats.map((stat, index) => {
+            const Icon = stat.icon;
+            return (
+              <div
+                key={index}
+                className="bg-card p-6 rounded-2xl shadow-soft text-center hover:shadow-medium transition-all duration-300 animate-fade-in"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-br from-primary to-accent mb-4">
+                  <Icon className="h-6 w-6 text-primary-foreground" />
+                </div>
+                <div className="relative text-3xl md:text-4xl font-extrabold mb-2 inline-block">
+                  <span className="relative z-10 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent inline-block transition-transform duration-500 ease-out transform hover:-translate-y-1 hover:scale-105">
+                    {stat.number}
+                  </span>
+                  <span
+                    aria-hidden="true"
+                    className="absolute z-0 left-1/2 top-1/2 w-28 h-8 -translate-x-1/2 -translate-y-1/2 rounded-full blur-md opacity-30 bg-gradient-to-r from-primary/60 to-accent/60 animate-pulse"
+                  />
+                </div>
+                <div className="font-semibold text-card-foreground mb-1">{stat.label}</div>
+                <div className="text-sm text-muted-foreground">{stat.description}</div>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>
